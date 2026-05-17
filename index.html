@@ -3,410 +3,621 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CV de Jose — desarrollador de software, creador de herramientas y productos digitales." />
-  <title>Jose · Desarrollador de software</title>
+  <meta name="description" content="CV profesional de José Antonio Sánchez, Ingeniero Informático, CTO hands-on y Software Architect." />
+  <title>José Antonio Sánchez · CV</title>
   <style>
     :root {
-      --bg: #08111f;
-      --panel: rgba(11, 20, 37, 0.72);
-      --panel-strong: rgba(12, 24, 45, 0.92);
-      --text: #eef4ff;
-      --muted: #9fb0cf;
-      --accent: #7c5cff;
-      --accent-2: #20d3b0;
-      --line: rgba(255,255,255,0.12);
-      --shadow: 0 24px 80px rgba(0,0,0,0.35);
+      --bg: #f4f7fb;
+      --paper: #ffffff;
+      --text: #17202a;
+      --muted: #5c6773;
+      --line: #d9e1ea;
+      --accent: #0f4c5c;
+      --accent-soft: #e7f1f3;
+      --accent-2: #1d6f78;
+      --shadow: 0 18px 45px rgba(20, 35, 52, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 999px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(124,92,255,0.34), transparent 28%),
-        radial-gradient(circle at 85% 10%, rgba(32,211,176,0.22), transparent 25%),
-        linear-gradient(135deg, #06101e 0%, #0a1224 45%, #08111f 100%);
-      line-height: 1.55;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 34px 34px;
-      mask-image: linear-gradient(to bottom, black, transparent 72%);
-      pointer-events: none;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .page {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 32px 0;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.4fr 0.8fr;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-
-    .card {
+      width: min(1200px, calc(100% - 32px));
+      margin: 32px auto;
+      background: var(--paper);
       border: 1px solid var(--line);
-      background: var(--panel);
-      backdrop-filter: blur(18px);
-      border-radius: 28px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
       box-shadow: var(--shadow);
     }
 
-    .intro {
-      padding: 34px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .intro::after {
-      content: "";
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      right: -80px;
-      bottom: -110px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,92,255,0.38), transparent 68%);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      color: #d8d0ff;
-      background: rgba(124,92,255,0.15);
-      border: 1px solid rgba(124,92,255,0.28);
-      font-size: 0.82rem;
-      letter-spacing: 0.03em;
-    }
-
-    h1 {
-      margin: 18px 0 8px;
-      font-size: clamp(2.1rem, 4vw, 4rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-    }
-
-    .gradient {
-      background: linear-gradient(90deg, #fff, #b8b0ff 45%, #86ffe5);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .lead {
-      max-width: 690px;
-      margin: 18px 0 24px;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .chip {
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.05);
-      color: #dbe7ff;
-      font-size: 0.92rem;
-    }
-
-    .sidebar {
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .avatar {
-      width: 74px;
-      height: 74px;
+    .header {
       display: grid;
-      place-items: center;
-      border-radius: 24px;
-      font-size: 1.7rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #07111e;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      padding: 36px 40px 30px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(15, 76, 92, 0.07), rgba(29, 111, 120, 0.02)),
+        var(--paper);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .headline {
+      margin: 10px 0 0;
+      color: var(--accent);
+      font-size: 1.05rem;
+      font-weight: 600;
     }
 
     .contact {
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      justify-items: end;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .contact strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(280px, 0.9fr);
+    }
+
+    .main {
+      padding: 34px 40px 40px;
+      border-right: 1px solid var(--line);
+    }
+
+    .sidebar {
+      padding: 34px 28px 40px;
+      background: #fbfcfe;
+    }
+
+    section + section {
+      margin-top: 30px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 0.95rem;
+      line-height: 1.2;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .profile {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .entry + .entry {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .entry-title {
+      margin: 0;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+
+    .entry-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .entry-subtitle {
+      margin-bottom: 12px;
+      color: var(--accent-2);
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 7px;
+    }
+
+    .entry ul,
+    .focus ul {
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .project {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: #fcfdff;
+    }
+
+    .project h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 10px;
+      color: var(--accent);
+      border: 1px solid #cfe1e5;
+      border-radius: var(--radius-sm);
+      background: var(--accent-soft);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .skill-group + .skill-group,
+    .sidebar-block + .sidebar-block {
+      margin-top: 22px;
+    }
+
+    .skill-group h3,
+    .sidebar h3 {
+      margin: 0 0 10px;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .compact-list {
       display: grid;
       gap: 10px;
       color: var(--muted);
       font-size: 0.96rem;
     }
 
-    .contact a {
+    .compact-list strong {
       color: var(--text);
-      text-decoration: none;
+      font-weight: 600;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 24px;
+    .placeholder {
+      color: #7d8793;
+      font-style: italic;
     }
 
-    section {
-      padding: 28px;
-    }
-
-    h2 {
-      margin: 0 0 18px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #b7c5df;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 18px;
-    }
-
-    .item {
+    .focus {
       padding: 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.035);
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid #cfe1e5;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #f5fbfc, #ffffff);
     }
 
-    .item-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: baseline;
-      margin-bottom: 8px;
+    @media (max-width: 900px) {
+      .page {
+        width: min(100% - 20px, 1200px);
+        margin: 10px auto;
+      }
+
+      .header,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        padding: 28px 22px 24px;
+      }
+
+      .contact {
+        justify-items: start;
+        text-align: left;
+      }
+
+      .main {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 28px 22px;
+      }
+
+      .sidebar {
+        padding: 28px 22px;
+      }
+
+      .entry-header {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .entry-meta {
+        white-space: normal;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .item h3 {
-      margin: 0;
-      font-size: 1.08rem;
-    }
+    @media print {
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
 
-    .date {
-      color: var(--accent-2);
-      font-size: 0.88rem;
-      white-space: nowrap;
-    }
+      body {
+        background: #ffffff;
+        color: #000000;
+        font-size: 10.5pt;
+      }
 
-    .item p, .item li {
-      color: var(--muted);
-    }
+      .page {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
 
-    .item p { margin: 0; }
+      .header {
+        padding: 0 0 16px;
+        background: #ffffff;
+      }
 
-    ul {
-      margin: 10px 0 0;
-      padding-left: 18px;
-    }
+      .layout {
+        grid-template-columns: minmax(0, 2fr) minmax(235px, 0.9fr);
+      }
 
-    .stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+      .main {
+        padding: 20px 22px 0 0;
+      }
 
-    .meter {
-      display: grid;
-      gap: 12px;
-    }
+      .sidebar {
+        padding: 20px 0 0 22px;
+        background: #ffffff;
+      }
 
-    .skill {
-      display: grid;
-      gap: 7px;
-    }
+      section + section {
+        margin-top: 20px;
+      }
 
-    .skill-row {
-      display: flex;
-      justify-content: space-between;
-      color: #dce6fb;
-      font-size: 0.95rem;
-    }
+      .entry + .entry {
+        margin-top: 16px;
+        padding-top: 16px;
+      }
 
-    .bar {
-      height: 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      overflow: hidden;
-    }
+      .project {
+        break-inside: avoid;
+        background: #ffffff;
+      }
 
-    .bar span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
+      .focus,
+      .tag {
+        background: #ffffff;
+      }
 
-    .quote {
-      margin-top: 18px;
-      padding: 18px;
-      border-left: 3px solid var(--accent-2);
-      color: #d9e6fb;
-      background: rgba(32,211,176,0.08);
-      border-radius: 0 18px 18px 0;
-    }
-
-    footer {
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 24px;
-    }
-
-    @media (max-width: 860px) {
-      .hero, .grid { grid-template-columns: 1fr; }
-      .item-head { flex-direction: column; }
-      .page { width: min(100% - 20px, 1180px); padding: 10px 0 24px; }
-      .intro, .sidebar, section { padding: 22px; }
+      a {
+        text-decoration: none;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <article class="card intro">
-        <span class="eyebrow">Disponible para proyectos · remoto / híbrido</span>
-        <h1>Jose<br><span class="gradient">Desarrollador de software</span></h1>
-        <p class="lead">
-          Creo herramientas digitales con una mezcla de ingeniería práctica, curiosidad técnica y foco en producto.
-          Me interesa convertir ideas difusas en soluciones limpias, útiles y sostenibles.
-        </p>
-        <div class="chips">
-          <span class="chip">Web</span>
-          <span class="chip">Automatización</span>
-          <span class="chip">Apps</span>
-          <span class="chip">IA aplicada</span>
-          <span class="chip">Open source</span>
-        </div>
-      </article>
+  <div class="page">
+    <header class="header">
+      <div>
+        <h1>José Antonio Sánchez</h1>
+        <p class="headline">Ingeniero Informático · CTO hands-on · Software Architect</p>
+      </div>
 
-      <aside class="card sidebar">
-        <div>
-          <div class="avatar">J</div>
-          <p class="lead" style="margin-bottom:0;">
-            Perfil técnico con gusto por los productos bien pensados y los sistemas que envejecen con dignidad.
+      <address class="contact">
+        <div><strong>Ubicación:</strong> España</div>
+        <div><strong>Email:</strong> <a href="mailto:darthplaguesi@gmail.com">darthplaguesi@gmail.com</a></div>
+        <div><strong>LinkedIn:</strong> <span class="placeholder">[LinkedIn]</span></div>
+        <div><strong>GitHub:</strong> <span class="placeholder">[GitHub]</span></div>
+        <div><strong>Portfolio:</strong> <span class="placeholder">[Portfolio]</span></div>
+      </address>
+    </header>
+
+    <div class="layout">
+      <main class="main">
+        <section aria-labelledby="perfil">
+          <h2 id="perfil">Perfil profesional</h2>
+          <p class="profile">
+            Ingeniero en Informática y CTO hands-on con experiencia construyendo productos digitales de extremo a extremo: desde la arquitectura y el diseño de APIs hasta el despliegue, la observabilidad y la evolución del producto. Combino liderazgo técnico con trabajo directo sobre el código en backend, cloud, mobile, DevOps, producto y datos. He liderado equipos técnicos reducidos, coordinando decisiones de arquitectura, entregas, calidad y roadmap sin perder cercanía con la implementación.
           </p>
-        </div>
-        <div class="contact">
-          <div>📍 España</div>
-          <div>✉️ <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></div>
-          <div>💻 <a href="#">github.com/jass-dev-tools</a></div>
-          <div>🌐 <a href="#">jass-dev-tools.github.io</a></div>
-        </div>
-      </aside>
-    </section>
+        </section>
 
-    <div class="grid">
-      <section class="card">
-        <h2>Experiencia</h2>
-        <div class="timeline">
-          <article class="item">
-            <div class="item-head">
-              <h3>Desarrollador independiente</h3>
-              <span class="date">Actualidad</span>
+        <section aria-labelledby="experiencia">
+          <h2 id="experiencia">Experiencia profesional</h2>
+
+          <article class="entry">
+            <div class="entry-header">
+              <h3 class="entry-title">Seven Kelts S.L. — CTO hands-on / Lead Engineer</h3>
+              <span class="entry-meta">Septiembre 2024 – Actualidad</span>
             </div>
-            <p>Diseño y desarrollo de soluciones web, herramientas internas y automatizaciones orientadas a resolver problemas reales.</p>
+            <p class="entry-subtitle">Proyecto principal: Bondy</p>
             <ul>
-              <li>Construcción de productos desde la idea hasta la entrega.</li>
-              <li>Integración de APIs, flujos automáticos y mejoras de experiencia.</li>
-              <li>Especial atención a claridad, rendimiento y mantenibilidad.</li>
+              <li>Liderazgo técnico del desarrollo de Bondy, aplicación para organizar planes, eventos, actividades, reservas, pagos, venta de entradas y gestión de experiencias.</li>
+              <li>Diseño y evolución de arquitectura backend con Node.js, TypeScript y Go, aplicando arquitectura hexagonal, APIs REST, microservicios y workflows con Temporal.</li>
+              <li>Desarrollo y evolución de la aplicación mobile en Flutter, coordinando necesidades de backend, frontend, QA y producto.</li>
+              <li>Migración y operación de infraestructura desde Google Cloud Platform hacia AWS, trabajando con Cloud Run, ECS, Lambda, EventBridge, Cloud Build y servicios gestionados.</li>
+              <li>Integraciones con Stripe, Google Pay, Apple Pay, GetStream, Meta SDK, AdMob y servicios externos de facturación.</li>
+              <li>Definición de procesos de CI/CD, testing, releases, versionado, monitorización y mejora continua de la calidad técnica.</li>
+              <li>Análisis de rendimiento y escalabilidad mediante JMeter, percentiles, throughput, ratios de error y comparativas entre entornos cloud.</li>
+              <li>Diseño de sistemas de feed, recomendación y clasificación de actividades mediante scoring, rankings, OpenAI Embeddings, AWS Personalize y Vertex AI / Agent Builder.</li>
+              <li>Definición de user stories, tareas técnicas, criterios de aceptación, escenarios Gherkin, backlog y roadmap de producto.</li>
             </ul>
           </article>
 
-          <article class="item">
-            <div class="item-head">
-              <h3>Proyectos personales y experimentación</h3>
-              <span class="date">Continuo</span>
+          <article class="entry">
+            <div class="entry-header">
+              <h3 class="entry-title"><span class="placeholder">[Empresa anterior]</span> — Rol técnico senior</h3>
+              <span class="entry-meta"><span class="placeholder">[Fechas]</span></span>
             </div>
-            <p>Exploro nuevas tecnologías y convierto aprendizajes en herramientas reutilizables, prototipos y productos públicos.</p>
+            <ul>
+              <li><span class="placeholder">[Responsabilidades principales, tecnologías y logros relevantes]</span></li>
+              <li><span class="placeholder">[Impacto en arquitectura, rendimiento, producto o equipo]</span></li>
+            </ul>
           </article>
-        </div>
-      </section>
 
-      <section class="card">
-        <h2>Fortalezas</h2>
-        <div class="meter">
-          <div class="skill">
-            <div class="skill-row"><span>Frontend</span><span>90%</span></div>
-            <div class="bar"><span style="width:90%"></span></div>
-          </div>
-          <div class="skill">
-            <div class="skill-row"><span>Backend</span><span>82%</span></div>
-            <div class="bar"><span style="width:82%"></span></div>
-          </div>
-          <div class="skill">
-            <div class="skill-row"><span>Automatización</span><span>88%</span></div>
-            <div class="bar"><span style="width:88%"></span></div>
-          </div>
-          <div class="skill">
-            <div class="skill-row"><span>Producto</span><span>84%</span></div>
-            <div class="bar"><span style="width:84%"></span></div>
-          </div>
-        </div>
-
-        <div class="quote">
-          “Me gustan los proyectos donde la tecnología no solo funciona: también aclara, acelera y deja espacio para crecer.”
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Tecnologías</h2>
-        <div class="stack">
-          <span class="chip">HTML</span>
-          <span class="chip">CSS</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">Git</span>
-          <span class="chip">APIs</span>
-          <span class="chip">Python</span>
-          <span class="chip">SQL</span>
-          <span class="chip">IA generativa</span>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Formación</h2>
-        <div class="timeline">
-          <article class="item">
-            <div class="item-head">
-              <h3>Aprendizaje continuo</h3>
-              <span class="date">Siempre</span>
+          <article class="entry">
+            <div class="entry-header">
+              <h3 class="entry-title">Proyecto freelance / Consultoría tecnológica</h3>
+              <span class="entry-meta"><span class="placeholder">[Fechas]</span></span>
             </div>
-            <p>Formación autodidacta, práctica deliberada y actualización constante en desarrollo, producto e inteligencia artificial.</p>
+            <ul>
+              <li><span class="placeholder">[Proyectos desarrollados, clientes o áreas de especialización]</span></li>
+              <li><span class="placeholder">[Automatizaciones, integraciones, arquitectura o asesoramiento técnico]</span></li>
+            </ul>
           </article>
-        </div>
-      </section>
+        </section>
+
+        <section aria-labelledby="proyectos">
+          <h2 id="proyectos">Proyectos destacados</h2>
+          <div class="project-grid">
+            <article class="project">
+              <h3>Bondy</h3>
+              <p>Marketplace y aplicación mobile para planes, eventos, reservas, pagos, tickets y gestión integral de experiencias.</p>
+            </article>
+
+            <article class="project">
+              <h3>Sistema de feed y recomendaciones</h3>
+              <p>Modelos de scoring, rankings, clasificación y personalización apoyados en embeddings, señales de usuario y motores de recomendación.</p>
+            </article>
+
+            <article class="project">
+              <h3>Migración cloud GCP → AWS</h3>
+              <p>Rediseño de servicios, despliegues, bases de datos y automatizaciones con ECS, Lambda, EventBridge y servicios cloud gestionados.</p>
+            </article>
+
+            <article class="project">
+              <h3>Capitán Watio</h3>
+              <p>Proyecto relacionado con energía, consumo eléctrico, vehículos eléctricos, recomendaciones y consejos energéticos.</p>
+            </article>
+
+            <article class="project">
+              <h3>Automatización de informes eléctricos</h3>
+              <p>Integración con proveedores externos, tratamiento de datos, generación automática y envío de informes periódicos.</p>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="enfoque">
+          <h2 id="enfoque">Enfoque profesional</h2>
+          <div class="focus">
+            <ul>
+              <li>Construcción de producto con visión técnica y de negocio.</li>
+              <li>Arquitecturas mantenibles, escalables y orientadas a evolución.</li>
+              <li>Automatización, observabilidad y decisiones apoyadas en datos.</li>
+              <li>Liderazgo técnico cercano al código y a la entrega real.</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <aside class="sidebar">
+        <section class="sidebar-block" aria-labelledby="competencias">
+          <h2 id="competencias">Competencias técnicas</h2>
+
+          <div class="skill-group">
+            <h3>Lenguajes</h3>
+            <div class="tag-list">
+              <span class="tag">TypeScript</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Go</span>
+              <span class="tag">Dart</span>
+              <span class="tag">PHP</span>
+              <span class="tag">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Backend</h3>
+            <div class="tag-list">
+              <span class="tag">Node.js</span>
+              <span class="tag">APIs REST</span>
+              <span class="tag">Arquitectura hexagonal</span>
+              <span class="tag">Prisma</span>
+              <span class="tag">Microservicios</span>
+              <span class="tag">Temporal</span>
+              <span class="tag placeholder">[Express / NestJS]</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Mobile</h3>
+            <div class="tag-list">
+              <span class="tag">Flutter</span>
+              <span class="tag">Android Studio</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Cloud</h3>
+            <div class="tag-list">
+              <span class="tag">AWS</span>
+              <span class="tag">GCP</span>
+              <span class="tag">Cloud Run</span>
+              <span class="tag">ECS</span>
+              <span class="tag">Lambda</span>
+              <span class="tag">EventBridge</span>
+              <span class="tag">Cloud Build</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Bases de datos</h3>
+            <div class="tag-list">
+              <span class="tag">MySQL</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Stored Procedures</span>
+              <span class="tag">Migraciones</span>
+              <span class="tag">Optimización</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>DevOps</h3>
+            <div class="tag-list">
+              <span class="tag">Docker</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Git</span>
+              <span class="tag">Cloud Build</span>
+              <span class="tag placeholder">[GitHub Actions]</span>
+              <span class="tag">IaC</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Testing &amp; QA</h3>
+            <div class="tag-list">
+              <span class="tag">Jest</span>
+              <span class="tag">Appium</span>
+              <span class="tag">JMeter</span>
+              <span class="tag">Gherkin</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Producto</h3>
+            <div class="tag-list">
+              <span class="tag">User Stories</span>
+              <span class="tag">Roadmap</span>
+              <span class="tag">Backlog</span>
+              <span class="tag">Criterios de aceptación</span>
+              <span class="tag">Análisis funcional</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Integraciones</h3>
+            <div class="tag-list">
+              <span class="tag">Stripe</span>
+              <span class="tag">Google Pay</span>
+              <span class="tag">Apple Pay</span>
+              <span class="tag">GetStream</span>
+              <span class="tag">Meta SDK</span>
+              <span class="tag">AdMob</span>
+              <span class="tag">Datadis</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>IA y datos</h3>
+            <div class="tag-list">
+              <span class="tag">OpenAI Embeddings</span>
+              <span class="tag">AWS Personalize</span>
+              <span class="tag">Vertex AI</span>
+              <span class="tag">Agent Builder</span>
+              <span class="tag">Recomendación</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="sidebar-block" aria-labelledby="formacion">
+          <h2 id="formacion">Formación</h2>
+          <div class="compact-list">
+            <div>
+              <strong>Ingeniería Informática</strong><br />
+              <span class="placeholder">[Universidad]</span> · <span class="placeholder">[Fechas]</span>
+            </div>
+            <div>
+              <strong>Formación adicional</strong><br />
+              <span class="placeholder">[Cursos, certificaciones o especializaciones]</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="sidebar-block" aria-labelledby="idiomas">
+          <h2 id="idiomas">Idiomas</h2>
+          <div class="compact-list">
+            <div><strong>Español:</strong> nativo</div>
+            <div><strong>Inglés:</strong> profesional / técnico</div>
+          </div>
+        </section>
+      </aside>
     </div>
-
-    <footer>
-      CV interactivo · Diseñado para editarse fácilmente en un único archivo HTML
-    </footer>
-  </main>
+  </div>
 </body>
 </html>
