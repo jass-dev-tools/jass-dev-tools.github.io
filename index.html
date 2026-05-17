@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CV de Jose — desarrollador de software, creador de herramientas y productos digitales." />
+  <title>Jose · Desarrollador de software</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --panel: rgba(11, 20, 37, 0.72);
+      --panel-strong: rgba(12, 24, 45, 0.92);
+      --text: #eef4ff;
+      --muted: #9fb0cf;
+      --accent: #7c5cff;
+      --accent-2: #20d3b0;
+      --line: rgba(255,255,255,0.12);
+      --shadow: 0 24px 80px rgba(0,0,0,0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124,92,255,0.34), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(32,211,176,0.22), transparent 25%),
+        linear-gradient(135deg, #06101e 0%, #0a1224 45%, #08111f 100%);
+      line-height: 1.55;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 72%);
+      pointer-events: none;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .intro {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -80px;
+      bottom: -110px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,92,255,0.38), transparent 68%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #d8d0ff;
+      background: rgba(124,92,255,0.15);
+      border: 1px solid rgba(124,92,255,0.28);
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      margin: 18px 0 8px;
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, #fff, #b8b0ff 45%, #86ffe5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 18px 0 24px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: #dbe7ff;
+      font-size: 0.92rem;
+    }
+
+    .sidebar {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .avatar {
+      width: 74px;
+      height: 74px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07111e;
+    }
+
+    .contact {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .contact a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+    }
+
+    section {
+      padding: 28px;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #b7c5df;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .item {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 1.08rem;
+    }
+
+    .date {
+      color: var(--accent-2);
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+
+    .item p, .item li {
+      color: var(--muted);
+    }
+
+    .item p { margin: 0; }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .meter {
+      display: grid;
+      gap: 12px;
+    }
+
+    .skill {
+      display: grid;
+      gap: 7px;
+    }
+
+    .skill-row {
+      display: flex;
+      justify-content: space-between;
+      color: #dce6fb;
+      font-size: 0.95rem;
+    }
+
+    .bar {
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .quote {
+      margin-top: 18px;
+      padding: 18px;
+      border-left: 3px solid var(--accent-2);
+      color: #d9e6fb;
+      background: rgba(32,211,176,0.08);
+      border-radius: 0 18px 18px 0;
+    }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .item-head { flex-direction: column; }
+      .page { width: min(100% - 20px, 1180px); padding: 10px 0 24px; }
+      .intro, .sidebar, section { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <article class="card intro">
+        <span class="eyebrow">Disponible para proyectos · remoto / híbrido</span>
+        <h1>Jose<br><span class="gradient">Desarrollador de software</span></h1>
+        <p class="lead">
+          Creo herramientas digitales con una mezcla de ingeniería práctica, curiosidad técnica y foco en producto.
+          Me interesa convertir ideas difusas en soluciones limpias, útiles y sostenibles.
+        </p>
+        <div class="chips">
+          <span class="chip">Web</span>
+          <span class="chip">Automatización</span>
+          <span class="chip">Apps</span>
+          <span class="chip">IA aplicada</span>
+          <span class="chip">Open source</span>
+        </div>
+      </article>
+
+      <aside class="card sidebar">
+        <div>
+          <div class="avatar">J</div>
+          <p class="lead" style="margin-bottom:0;">
+            Perfil técnico con gusto por los productos bien pensados y los sistemas que envejecen con dignidad.
+          </p>
+        </div>
+        <div class="contact">
+          <div>📍 España</div>
+          <div>✉️ <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></div>
+          <div>💻 <a href="#">github.com/jass-dev-tools</a></div>
+          <div>🌐 <a href="#">jass-dev-tools.github.io</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Experiencia</h2>
+        <div class="timeline">
+          <article class="item">
+            <div class="item-head">
+              <h3>Desarrollador independiente</h3>
+              <span class="date">Actualidad</span>
+            </div>
+            <p>Diseño y desarrollo de soluciones web, herramientas internas y automatizaciones orientadas a resolver problemas reales.</p>
+            <ul>
+              <li>Construcción de productos desde la idea hasta la entrega.</li>
+              <li>Integración de APIs, flujos automáticos y mejoras de experiencia.</li>
+              <li>Especial atención a claridad, rendimiento y mantenibilidad.</li>
+            </ul>
+          </article>
+
+          <article class="item">
+            <div class="item-head">
+              <h3>Proyectos personales y experimentación</h3>
+              <span class="date">Continuo</span>
+            </div>
+            <p>Exploro nuevas tecnologías y convierto aprendizajes en herramientas reutilizables, prototipos y productos públicos.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Fortalezas</h2>
+        <div class="meter">
+          <div class="skill">
+            <div class="skill-row"><span>Frontend</span><span>90%</span></div>
+            <div class="bar"><span style="width:90%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-row"><span>Backend</span><span>82%</span></div>
+            <div class="bar"><span style="width:82%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-row"><span>Automatización</span><span>88%</span></div>
+            <div class="bar"><span style="width:88%"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-row"><span>Producto</span><span>84%</span></div>
+            <div class="bar"><span style="width:84%"></span></div>
+          </div>
+        </div>
+
+        <div class="quote">
+          “Me gustan los proyectos donde la tecnología no solo funciona: también aclara, acelera y deja espacio para crecer.”
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Tecnologías</h2>
+        <div class="stack">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Git</span>
+          <span class="chip">APIs</span>
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">IA generativa</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Formación</h2>
+        <div class="timeline">
+          <article class="item">
+            <div class="item-head">
+              <h3>Aprendizaje continuo</h3>
+              <span class="date">Siempre</span>
+            </div>
+            <p>Formación autodidacta, práctica deliberada y actualización constante en desarrollo, producto e inteligencia artificial.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      CV interactivo · Diseñado para editarse fácilmente en un único archivo HTML
+    </footer>
+  </main>
+</body>
+</html>
